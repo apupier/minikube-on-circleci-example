@@ -8,9 +8,9 @@ jobs:
       - run:
           name: Setup Environment Variables for Minikube
           command: |
-            echo 'export HOME=/home/circleci' >> $BASH_ENV
             echo 'export MINIKUBE_WANTUPDATENOTIFICATION=false' >> $BASH_ENV
             echo 'export MINIKUBE_WANTREPORTERRORPROMPT=false' >> $BASH_ENV
+            echo 'export HOME=/home/circleci' >> $BASH_ENV
             echo 'export MINIKUBE_HOME=$HOME' >> $BASH_ENV
             echo 'export KUBECONFIG=$HOME/.kube/config' >> $BASH_ENV
       - run:
@@ -27,10 +27,6 @@ jobs:
             minikube addons enable registry
             sudo chown -R circleci: /home/circleci/.minikube/
             kubectl cluster-info
-            # Clean CLI which were used to start the Kubernetes instance
-            sudo rm /usr/local/bin/minikube
-            sudo rm /usr/local/bin/kubectl
-
 
 workflows:
   version: 2
