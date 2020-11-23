@@ -3,7 +3,12 @@
 # Minikube on Circle CI example
 
 Configuring Minikube on Circle CI is simple... when you know the tricks!
+
 This repository is providing an example.
+
+# Limitations
+
+The limitation of using this approach is that you cannot reuse the useful list of [pre-built docker images provided by Circle CI](https://circleci.com/docs/2.0/circleci-images/). You will have to configure the other requirements for your build and test inside the Circle CI configuration file.
 
 # Insights on the tricks
 
