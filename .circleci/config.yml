@@ -27,7 +27,9 @@ jobs:
             minikube start --vm-driver=docker --kubernetes-version=v1.19.0
             minikube addons enable registry
             sudo chown -R circleci: /home/circleci/.minikube/
-            kubectl cluster-info
+      - run:
+          name: Check kubernetes is running
+          command: kubectl cluster-info
 
 workflows:
   version: 2
